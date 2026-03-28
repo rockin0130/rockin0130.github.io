@@ -10,73 +10,229 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
+      font-family: Arial, sans-serif;
       background: #f3f4f6;
       color: #111827;
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     .top-bar {
       display: flex;
       justify-content: flex-end;
-      padding: 24px 40px 0 40px;
+      padding: 26px 42px 0 42px;
+      background: white;
     }
 
     .dark-toggle {
       background: #0f172a;
       color: white;
       border: none;
-      border-radius: 10px;
-      padding: 10px 16px;
+      border-radius: 12px;
+      padding: 12px 18px;
       font-size: 15px;
       cursor: pointer;
     }
 
     .hero {
       background: white;
-      text-align: center;
-      padding: 30px 20px 70px 20px;
+      padding: 28px 48px 48px 48px;
     }
 
-    .profile-img {
-      width: 140px;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 50%;
-      margin-bottom: 20px;
-      border: 4px solid #e5e7eb;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    .hero-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      min-height: 500px;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 30px;
+      align-items: center;
     }
 
-    .hero h1 {
-      font-size: 58px;
+    .hero-left {
+      padding-right: 20px;
+    }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #6b7280;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .hero-left h1 {
+      font-size: 78px;
+      line-height: 0.95;
       margin: 0 0 18px 0;
     }
 
-    .contact-info {
-      font-size: 20px;
+    .hero-desc {
+      font-size: 28px;
+      line-height: 1.35;
       color: #374151;
-      line-height: 1.9;
+      margin-bottom: 26px;
+      max-width: 620px;
     }
 
-    .contact-info a {
-      color: #2563eb;
+    .contact-block {
+      font-size: 22px;
+      line-height: 1.9;
+      color: #374151;
+      margin-bottom: 24px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      background: #111827;
+      color: white;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 700;
       text-decoration: none;
     }
 
-    .contact-info a:hover {
-      text-decoration: underline;
+    .hero-btn.secondary {
+      background: transparent;
+      color: #111827;
+      border: 2px solid #d1d5db;
+    }
+
+    .hero-right {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 470px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 470px;
+      border-radius: 28px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #e5e7eb, #f8fafc);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(17,24,39,0.28), rgba(17,24,39,0.05));
+    }
+
+    .slide-caption {
+      position: absolute;
+      left: 28px;
+      bottom: 28px;
+      z-index: 2;
+      color: white;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 10px 14px;
+      background: rgba(15, 23, 42, 0.45);
+      border-radius: 12px;
+      backdrop-filter: blur(4px);
+    }
+
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 3;
+      width: 48px;
+      height: 48px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.55);
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .slider-arrow.left {
+      left: 18px;
+    }
+
+    .slider-arrow.right {
+      right: 18px;
+    }
+
+    .slider-dots {
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 24px;
+      z-index: 3;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.5);
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background: white;
     }
 
     .section {
       max-width: 1400px;
       margin: 0 auto;
-      padding: 60px 40px 80px 40px;
+      padding: 54px 42px 80px 42px;
     }
 
     .section h2 {
-      font-size: 54px;
-      margin: 0 0 32px 0;
+      font-size: 64px;
+      line-height: 1;
+      margin: 0 0 28px 0;
     }
 
     .projects {
@@ -87,14 +243,14 @@
 
     .card {
       background: white;
-      border-radius: 24px;
+      border-radius: 26px;
       padding: 30px 28px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-      min-height: 290px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+      min-height: 300px;
     }
 
     .card h3 {
-      margin: 0 0 18px 0;
+      margin: 0 0 16px 0;
       font-size: 28px;
       line-height: 1.2;
     }
@@ -102,22 +258,22 @@
     .card p {
       font-size: 18px;
       color: #374151;
-      margin-bottom: 26px;
+      margin-bottom: 22px;
     }
 
     .details {
       display: none;
-      margin-top: 18px;
+      margin-top: 16px;
       color: #4b5563;
       font-size: 16px;
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
     .card button {
       background: #0f172a;
       color: white;
       border: none;
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 12px 18px;
       font-size: 16px;
       cursor: pointer;
@@ -129,19 +285,22 @@
     }
 
     .dark .hero,
+    .dark .top-bar,
     .dark .card {
       background: #1f2937;
       color: white;
     }
 
-    .dark .contact-info,
+    .dark .hero-desc,
+    .dark .contact-block,
     .dark .card p,
     .dark .details {
       color: #d1d5db;
     }
 
-    .dark .profile-img {
-      border-color: #374151;
+    .dark .hero-btn.secondary {
+      color: white;
+      border-color: #4b5563;
     }
 
     .dark .section {
@@ -155,16 +314,29 @@
     }
 
     @media (max-width: 1100px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-left h1 {
+        font-size: 54px;
+      }
+
+      .hero-desc {
+        font-size: 22px;
+      }
+
+      .section h2 {
+        font-size: 42px;
+      }
+
       .projects {
         grid-template-columns: 1fr;
       }
 
-      .hero h1 {
-        font-size: 44px;
-      }
-
-      .section h2 {
-        font-size: 40px;
+      .hero-right,
+      .slider {
+        min-height: 380px;
       }
     }
   </style>
@@ -175,16 +347,57 @@
   </div>
 
   <section class="hero">
-    <img src="IMG_4732.JPG" alt="Ian Lee profile photo" class="profile-img" />
-    <h1>Ian Lee</h1>
-    <div class="contact-info">
-      <div>Phone: (123) 456-7890</div>
-      <div>Email: <a href="mailto:yourname@email.com">yourname@email.com</a></div>
-      <div>LinkedIn: <a href="https://www.linkedin.com/in/your-linkedin/" target="_blank">linkedin.com/in/your-linkedin</a></div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-label">Portfolio</div>
+        <h1>Ian Lee</h1>
+        <div class="hero-desc">
+          Building across AI, Data, and Product with a focus on practical systems and thoughtful user experience.
+        </div>
+        <div class="contact-block">
+          <div>Email: <a href="mailto:seokinlee0130@gmail.com">seokinlee0130@gmail.com</a></div>
+          <div>LinkedIn: <a href="https://www.linkedin.com/in/seokin-lee" target="_blank">linkedin.com/in/seokin-lee</a></div>
+        </div>
+        <div class="hero-buttons">
+          <a class="hero-btn" href="https://www.linkedin.com/in/seokin-lee" target="_blank">View LinkedIn</a>
+          <a class="hero-btn secondary" href="#selected-work">Selected Work</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="slider">
+          <button class="slider-arrow left" onclick="changeSlide(-1)">‹</button>
+          <button class="slider-arrow right" onclick="changeSlide(1)">›</button>
+
+          <div class="slide active">
+            <img src="profile.jpg" alt="Ian Lee profile photo" />
+            <div class="slide-overlay"></div>
+            <div class="slide-caption">Profile</div>
+          </div>
+
+          <div class="slide">
+            <img src="daily1.jpg" alt="Ian Lee daily life photo 1" />
+            <div class="slide-overlay"></div>
+            <div class="slide-caption">Daily Life</div>
+          </div>
+
+          <div class="slide">
+            <img src="daily2.jpg" alt="Ian Lee daily life photo 2" />
+            <div class="slide-overlay"></div>
+            <div class="slide-caption">Everyday Moments</div>
+          </div>
+
+          <div class="slider-dots">
+            <button class="dot active" onclick="goToSlide(0)"></button>
+            <button class="dot" onclick="goToSlide(1)"></button>
+            <button class="dot" onclick="goToSlide(2)"></button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="selected-work">
     <h2>Selected Work</h2>
     <div class="projects">
       <div class="card">
@@ -192,7 +405,7 @@
         <p>Data-driven market analysis and strategy support.</p>
         <button onclick="toggleDetails('project1')">Show More</button>
         <div class="details" id="project1">
-          Consolidated 1,000+ data points into a structured dataset using SQL and VBA, built a centralized tracking system for cross-market analysis, and identified launch and marketing misalignment across regions.
+          Consolidated 1,000+ data points into a structured dataset using SQL and VBA, built a centralized tracking system for cross-market analysis, and identified misalignment between vehicle launch timing and marketing execution.
         </div>
       </div>
 
@@ -201,7 +414,7 @@
         <p>Multi-turn scheduling app with improved user flow.</p>
         <button onclick="toggleDetails('project2')">Show More</button>
         <div class="details" id="project2">
-          Improved user flow for vague scheduling requests, explored calendar integrations, and helped shape a more reliable AI-assisted scheduling experience.
+          Improved user flow for vague requests, explored calendar integrations, and worked on a more reliable AI-assisted scheduling experience that asks clarifying questions before acting.
         </div>
       </div>
 
@@ -210,7 +423,7 @@
         <p>AI-supported scoring and recommendation workflow.</p>
         <button onclick="toggleDetails('project3')">Show More</button>
         <div class="details" id="project3">
-          Worked on the AI workflow for a fashion recommendation browser extension, connecting user preferences, product data, and personalized scoring logic.
+          Worked on the AI workflow for a browser extension that connects user preferences, product data, and personalized scoring logic to support fashion recommendations.
         </div>
       </div>
     </div>
@@ -219,15 +432,36 @@
   <script>
     function toggleDetails(id) {
       const section = document.getElementById(id);
-      if (section.style.display === "block") {
-        section.style.display = "none";
-      } else {
-        section.style.display = "block";
-      }
+      section.style.display = section.style.display === "block" ? "none" : "block";
     }
 
     function toggleDarkMode() {
       document.body.classList.toggle("dark");
+    }
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".dot");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === index);
+      });
+      currentSlide = index;
+    }
+
+    function changeSlide(direction) {
+      let next = currentSlide + direction;
+      if (next < 0) next = slides.length - 1;
+      if (next >= slides.length) next = 0;
+      showSlide(next);
+    }
+
+    function goToSlide(index) {
+      showSlide(index);
     }
   </script>
 </body>
