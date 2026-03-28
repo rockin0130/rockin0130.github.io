@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ian Lee Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f7fb;
+      color: #111827;
+    }
+
+    header {
+      padding: 40px 20px;
+      text-align: center;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .details {
+      display: none;
+      margin-top: 12px;
+      color: #4b5563;
+    }
+
+    button {
+      margin-top: 12px;
+      padding: 10px 14px;
+      border: none;
+      border-radius: 8px;
+      background: #111827;
+      color: white;
+      cursor: pointer;
+    }
+
+    .dark {
+      background: #111827;
+      color: white;
+    }
+
+    .dark header,
+    .dark .card {
+      background: #1f2937;
+      color: white;
+    }
+
+    .dark .details {
+      color: #d1d5db;
+    }
+
+    .top-btn {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ian Lee</h1>
+    <p>Building projects across AI, Data, and Product</p>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+  </header>
+
+  <div class="container">
+    <h2>Selected Work</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>Hyundai Motor Group</h3>
+        <p>Data-driven market analysis and strategy support.</p>
+        <button onclick="toggleDetails('project1')">Show More</button>
+        <div class="details" id="project1">
+          Consolidated 1,000+ data points using SQL and VBA, identified launch misalignment in Europe, and supported strategic decisions in emerging markets.
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>AI Scheduling Assistant</h3>
+        <p>Multi-turn scheduling app with improved user flow.</p>
+        <button onclick="toggleDetails('project2')">Show More</button>
+        <div class="details" id="project2">
+          Worked on improving the logic for vague requests, follow-up questions, and calendar integrations for a more reliable user experience.
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Fashion Extension</h3>
+        <p>AI-supported scoring and recommendation workflow.</p>
+        <button onclick="toggleDetails('project3')">Show More</button>
+        <div class="details" id="project3">
+          Explored how product data, user preferences, and AI-based matching could support personalized fashion recommendations in a browser extension.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleDetails(id) {
+      const section = document.getElementById(id);
+      if (section.style.display === "block") {
+        section.style.display = "none";
+      } else {
+        section.style.display = "block";
+      }
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark");
+    }
+  </script>
+</body>
+</html>
