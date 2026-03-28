@@ -7,7 +7,6 @@
 <title>Ian Lee Portfolio</title>
 
 <style>
-/* ================= RESET ================= */
 * {
   box-sizing: border-box;
 }
@@ -22,38 +21,16 @@ body {
 /* ================= HERO ================= */
 .hero {
   position: relative;
-  min-height: 72vh;
+  min-height: 78vh;
+  padding: 80px 60px;
   overflow: hidden;
-  background: #ffffff;
-}
 
-/* 이미지 (배경 역할) */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-
-.hero-bg img {
-  position: absolute;
-  right: 0;
-  top: 6%;
-  width: 40%;
-  height: auto;
-}
-
-/* 텍스트 가독성용 아주 약한 그라데이션 */
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: linear-gradient(
-    to right,
-    rgba(255,255,255,0.95) 0%,
-    rgba(255,255,255,0.85) 30%,
-    rgba(255,255,255,0.4) 55%,
-    rgba(255,255,255,0) 75%
-  );
+  /* 🔥 핵심 */
+  background-image: url("hero.png");
+  background-repeat: no-repeat;
+  background-position: right 5% bottom;
+  background-size: 42%;
+  background-color: #ffffff;
 }
 
 /* 다크모드 버튼 */
@@ -61,7 +38,6 @@ body {
   position: absolute;
   top: 28px;
   right: 28px;
-  z-index: 5;
 }
 
 .mode-button {
@@ -75,19 +51,11 @@ body {
   cursor: pointer;
 }
 
-/* 내부 레이아웃 */
+/* 텍스트 영역 */
 .hero-inner {
-  position: relative;
-  z-index: 4;
-  max-width: 1400px;
-  margin: 0 auto;
-  min-height: 72vh;
-  display: flex;
-  align-items: center;
-  padding: 0 60px;
+  max-width: 1200px;
 }
 
-/* 텍스트 영역 */
 .hero-copy {
   max-width: 720px;
 }
@@ -145,8 +113,6 @@ body {
 /* ================= WORK ================= */
 .section {
   padding: 80px 60px;
-  max-width: 1400px;
-  margin: auto;
 }
 
 .section-title {
@@ -184,17 +150,7 @@ body {
 }
 
 .dark .hero {
-  background: #111;
-}
-
-.dark .hero-overlay {
-  background: linear-gradient(
-    to right,
-    rgba(17,17,17,0.95) 0%,
-    rgba(17,17,17,0.7) 40%,
-    rgba(17,17,17,0.2) 65%,
-    rgba(17,17,17,0) 80%
-  );
+  background-color: #111;
 }
 
 .dark .btn-primary {
@@ -213,12 +169,6 @@ body {
 <body>
 
 <section class="hero">
-
-  <div class="hero-bg">
-    <img src="hero.png" alt="profile">
-  </div>
-
-  <div class="hero-overlay"></div>
 
   <div class="hero-top">
     <button class="mode-button" id="modeButton" onclick="toggleDarkMode()">Dark Mode</button>
