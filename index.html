@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ian Lee Portfolio</title>
   <style>
+    :root {
+      --bg: #f5f5f7;
+      --surface: #ffffff;
+      --text: #111111;
+      --muted: #6e6e73;
+      --line: rgba(17, 17, 17, 0.08);
+      --button-dark: #111111;
+      --button-light: #ffffff;
+      --shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -15,230 +26,304 @@
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f3f4f6;
-      color: #111827;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+        "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     a {
       text-decoration: none;
+      color: inherit;
     }
 
     .hero {
       position: relative;
-      min-height: 92vh;
-      padding: 36px 42px 56px 42px;
-      background-image:
-        linear-gradient(to right, rgba(15, 23, 42, 0.72) 0%, rgba(15, 23, 42, 0.50) 35%, rgba(15, 23, 42, 0.18) 60%, rgba(15, 23, 42, 0.08) 100%),
-        url("IMG_4732.JPG");
-      background-size: cover;
-      background-position: center;
+      min-height: 72vh;
+      padding: 32px 40px 44px;
       display: flex;
       align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          to right,
+          rgba(17, 17, 17, 0.62) 0%,
+          rgba(17, 17, 17, 0.40) 24%,
+          rgba(17, 17, 17, 0.12) 48%,
+          rgba(17, 17, 17, 0.02) 72%,
+          rgba(17, 17, 17, 0.00) 100%
+        ),
+        url("IMG_4732.JPG");
+      background-repeat: no-repeat;
+      background-size: 58%;
+      background-position: 82% 60%;
+      background-color: #f5f5f7;
+      border-bottom: 1px solid var(--line);
     }
 
     .hero-top {
       position: absolute;
       top: 28px;
-      right: 32px;
+      right: 28px;
+      z-index: 3;
     }
 
-    .dark-toggle {
-      background: rgba(15, 23, 42, 0.88);
-      color: white;
+    .mode-button {
       border: none;
-      border-radius: 14px;
+      border-radius: 999px;
+      background: rgba(17, 17, 17, 0.92);
+      color: #ffffff;
       padding: 14px 20px;
       font-size: 15px;
-      font-weight: 700;
+      font-weight: 600;
+      letter-spacing: -0.01em;
       cursor: pointer;
-      backdrop-filter: blur(6px);
+      transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      backdrop-filter: blur(8px);
+    }
+
+    .mode-button:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 760px;
-      padding-left: 18px;
-      color: white;
+      max-width: 640px;
+      margin-left: 24px;
+      color: #ffffff;
     }
 
-    .hero-label {
+    .eyebrow {
       display: inline-block;
+      margin-bottom: 18px;
       font-size: 15px;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      opacity: 0.88;
-      margin-bottom: 18px;
+      color: rgba(255, 255, 255, 0.82);
     }
 
-    .hero h1 {
-      margin: 0 0 20px 0;
-      font-size: 96px;
-      line-height: 0.95;
-      letter-spacing: -0.04em;
+    .hero-title {
+      margin: 0;
+      font-size: clamp(64px, 9vw, 104px);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      font-weight: 700;
     }
 
-    .hero-desc {
-      max-width: 680px;
-      font-size: 30px;
-      line-height: 1.35;
+    .hero-copy {
+      margin-top: 24px;
       margin-bottom: 34px;
-      color: rgba(255, 255, 255, 0.92);
+      max-width: 600px;
+      font-size: clamp(26px, 3.2vw, 34px);
+      line-height: 1.28;
+      letter-spacing: -0.03em;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.94);
     }
 
-    .hero-buttons {
+    .hero-actions {
       display: flex;
-      gap: 16px;
+      gap: 14px;
       flex-wrap: wrap;
     }
 
-    .hero-btn {
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 170px;
+      min-width: 168px;
       padding: 15px 24px;
       border-radius: 999px;
       font-size: 17px;
-      font-weight: 700;
-      transition: 0.2s ease;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease, color 0.2s ease;
     }
 
-    .hero-btn.primary {
-      background: white;
-      color: #111827;
+    .btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.98;
     }
 
-    .hero-btn.secondary {
-      background: transparent;
-      color: white;
-      border: 2px solid rgba(255, 255, 255, 0.7);
+    .btn-primary {
+      background: #ffffff;
+      color: #111111;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.10);
     }
 
-    .hero-btn.ghost {
-      background: rgba(255, 255, 255, 0.12);
-      color: white;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+    .btn-secondary {
+      background: rgba(255,255,255,0.10);
+      color: #ffffff;
+      border: 1.5px solid rgba(255,255,255,0.38);
       backdrop-filter: blur(8px);
     }
 
-    .hero-btn:hover {
-      transform: translateY(-1px);
-    }
-
     .section {
-      max-width: 1400px;
+      max-width: 1440px;
       margin: 0 auto;
-      padding: 58px 42px 84px 42px;
+      padding: 52px 40px 88px;
     }
 
-    .section h2 {
-      margin: 0 0 28px 0;
-      font-size: 64px;
-      line-height: 1;
-      letter-spacing: -0.04em;
+    .section-title {
+      margin: 0 0 30px;
+      font-size: clamp(44px, 5vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      font-weight: 700;
     }
 
-    .projects {
+    .cards {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 28px;
+      gap: 24px;
     }
 
     .card {
-      background: white;
-      border-radius: 26px;
+      background: var(--surface);
+      border-radius: 28px;
       padding: 30px 28px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+      box-shadow: var(--shadow);
       min-height: 300px;
     }
 
-    .card h3 {
-      margin: 0 0 16px 0;
-      font-size: 28px;
-      line-height: 1.2;
+    .card-title {
+      margin: 0 0 14px;
+      font-size: 30px;
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+      font-weight: 650;
     }
 
-    .card p {
-      margin: 0 0 22px 0;
-      font-size: 18px;
-      line-height: 1.5;
-      color: #374151;
+    .card-summary {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.48;
+      letter-spacing: -0.02em;
+    }
+
+    .card-button {
+      border: none;
+      border-radius: 999px;
+      background: var(--button-dark);
+      color: #ffffff;
+      padding: 12px 18px;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .card-button:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
     }
 
     .details {
       display: none;
-      margin-top: 14px;
-      color: #4b5563;
+      margin-top: 18px;
+      color: var(--muted);
       font-size: 16px;
-      line-height: 1.75;
-    }
-
-    .card button {
-      background: #0f172a;
-      color: white;
-      border: none;
-      border-radius: 14px;
-      padding: 12px 18px;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
+      line-height: 1.7;
+      letter-spacing: -0.01em;
+      padding-top: 2px;
     }
 
     .dark {
-      background: #111827;
-      color: white;
+      --bg: #0f1115;
+      --surface: #17191d;
+      --text: #f5f5f7;
+      --muted: #b8bcc4;
+      --line: rgba(255, 255, 255, 0.08);
+      --button-dark: #f5f5f7;
+      --button-light: #111111;
+      --shadow: 0 14px 34px rgba(0, 0, 0, 0.26);
     }
 
-    .dark .section {
-      background: transparent;
+    .dark .hero {
+      background:
+        linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.68) 0%,
+          rgba(0, 0, 0, 0.44) 24%,
+          rgba(0, 0, 0, 0.14) 48%,
+          rgba(0, 0, 0, 0.04) 72%,
+          rgba(0, 0, 0, 0.00) 100%
+        ),
+        url("IMG_4732.JPG");
+      background-repeat: no-repeat;
+      background-size: 58%;
+      background-position: 82% 60%;
+      background-color: #0f1115;
     }
 
-    .dark .card {
-      background: #1f2937;
-      color: white;
+    .dark .mode-button {
+      background: rgba(255,255,255,0.12);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.15);
     }
 
-    .dark .card p,
-    .dark .details {
-      color: #d1d5db;
+    .dark .btn-primary {
+      background: #f5f5f7;
+      color: #111111;
     }
 
-    .dark .card button {
-      background: #e5e7eb;
-      color: #111827;
+    .dark .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.24);
+      color: #ffffff;
     }
 
-    @media (max-width: 1100px) {
+    .dark .card-button {
+      background: #f5f5f7;
+      color: #111111;
+    }
+
+    @media (max-width: 1200px) {
       .hero {
-        min-height: 78vh;
-        background-position: center top;
+        background-size: 68%;
+        background-position: 86% 58%;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        min-height: 64vh;
+        padding: 28px 24px 34px;
+        background-size: 90%;
+        background-position: 130% 54%;
       }
 
-      .hero h1 {
-        font-size: 64px;
+      .hero-content {
+        margin-left: 4px;
+        max-width: 540px;
       }
 
-      .hero-desc {
-        font-size: 22px;
-        max-width: 520px;
+      .hero-copy {
+        max-width: 500px;
       }
 
-      .section h2 {
-        font-size: 42px;
+      .section {
+        padding: 40px 24px 64px;
       }
 
-      .projects {
+      .cards {
         grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 720px) {
       .hero {
-        padding: 28px 22px 40px 22px;
-        min-height: 72vh;
+        min-height: 58vh;
+        background-size: cover;
+        background-position: center top;
       }
 
       .hero-top {
@@ -246,25 +331,20 @@
         right: 18px;
       }
 
-      .hero-content {
-        padding-left: 0;
+      .hero-title {
+        font-size: 56px;
       }
 
-      .hero h1 {
-        font-size: 48px;
+      .hero-copy {
+        font-size: 22px;
+        margin-top: 18px;
+        margin-bottom: 26px;
       }
 
-      .hero-desc {
-        font-size: 19px;
-      }
-
-      .hero-btn {
+      .btn {
         min-width: 150px;
         font-size: 15px;
-      }
-
-      .section {
-        padding: 42px 22px 64px 22px;
+        padding: 14px 20px;
       }
     }
   </style>
@@ -272,49 +352,48 @@
 <body>
   <section class="hero">
     <div class="hero-top">
-      <button class="dark-toggle" onclick="toggleDarkMode()">Dark Mode</button>
+      <button class="mode-button" id="modeButton" onclick="toggleDarkMode()">Dark Mode</button>
     </div>
 
     <div class="hero-content">
-      <div class="hero-label">Portfolio</div>
-      <h1>Ian Lee</h1>
-      <div class="hero-desc">
+      <div class="eyebrow">Portfolio</div>
+      <h1 class="hero-title">Ian Lee</h1>
+      <div class="hero-copy">
         Building across AI, Data, and Product with a focus on practical systems and thoughtful user experience.
       </div>
-
-      <div class="hero-buttons">
-        <a class="hero-btn primary" href="mailto:seokinlee0130@gmail.com">View Email</a>
-        <a class="hero-btn secondary" href="https://www.linkedin.com/in/seokin-lee" target="_blank">View LinkedIn</a>
-        <a class="hero-btn ghost" href="#selected-work">Selected Work</a>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="mailto:seokinlee0130@gmail.com">View Email</a>
+        <a class="btn btn-secondary" href="https://www.linkedin.com/in/seokin-lee" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
       </div>
     </div>
   </section>
 
-  <section class="section" id="selected-work">
-    <h2>Selected Work</h2>
-    <div class="projects">
+  <section class="section">
+    <h2 class="section-title">Selected Work</h2>
+
+    <div class="cards">
       <div class="card">
-        <h3>Hyundai Motor Group</h3>
-        <p>Data-driven market analysis and strategy support.</p>
-        <button onclick="toggleDetails('project1')">Show More</button>
+        <h3 class="card-title">Hyundai Motor Group</h3>
+        <p class="card-summary">Data-driven market analysis and strategy support.</p>
+        <button class="card-button" onclick="toggleDetails('project1')">Show More</button>
         <div class="details" id="project1">
           Consolidated 1,000+ data points into a structured dataset using SQL and VBA, built a centralized tracking system for cross-market analysis, and identified misalignment between vehicle launch timing and marketing execution.
         </div>
       </div>
 
       <div class="card">
-        <h3>AI Scheduling Assistant</h3>
-        <p>Multi-turn scheduling app with improved user flow.</p>
-        <button onclick="toggleDetails('project2')">Show More</button>
+        <h3 class="card-title">AI Scheduling Assistant</h3>
+        <p class="card-summary">Multi-turn scheduling app with improved user flow.</p>
+        <button class="card-button" onclick="toggleDetails('project2')">Show More</button>
         <div class="details" id="project2">
           Improved user flow for vague requests, explored calendar integrations, and worked on a more reliable AI-assisted scheduling experience that asks clarifying questions before acting.
         </div>
       </div>
 
       <div class="card">
-        <h3>Fashion Extension</h3>
-        <p>AI-supported scoring and recommendation workflow.</p>
-        <button onclick="toggleDetails('project3')">Show More</button>
+        <h3 class="card-title">Fashion Extension</h3>
+        <p class="card-summary">AI-supported scoring and recommendation workflow.</p>
+        <button class="card-button" onclick="toggleDetails('project3')">Show More</button>
         <div class="details" id="project3">
           Worked on the AI workflow for a browser extension that connects user preferences, product data, and personalized scoring logic to support fashion recommendations.
         </div>
@@ -330,6 +409,8 @@
 
     function toggleDarkMode() {
       document.body.classList.toggle("dark");
+      const button = document.getElementById("modeButton");
+      button.textContent = document.body.classList.contains("dark") ? "Light Mode" : "Dark Mode";
     }
   </script>
 </body>
