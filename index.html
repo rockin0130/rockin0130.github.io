@@ -1,436 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ian Lee Portfolio</title>
-  <style>
-    :root {
-      --bg: #f5f5f7;
-      --text: #111111;
-      --muted: #6b7280;
-      --card: #ffffff;
-      --line: rgba(17, 17, 17, 0.08);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    * {
-      box-sizing: border-box;
-    }
+<title>Ian Lee Portfolio</title>
 
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
+<style>
+/* ================= RESET ================= */
+* {
+  box-sizing: border-box;
+}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  background: #ffffff;
+  color: #111;
+}
 
-    .hero {
-      position: relative;
-      min-height: 78vh;
-      overflow: hidden;
-      border-bottom: 1px solid var(--line);
-      background-color: #f5f5f7;
-    }
+/* ================= HERO ================= */
+.hero {
+  position: relative;
+  min-height: 72vh;
+  overflow: hidden;
+  background: #ffffff;
+}
 
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background-image: url("hero.png");
-      background-repeat: no-repeat;
-      background-size: 58%;
-      background-position: 88% bottom;
-      z-index: 1;
-    }
+/* 이미지 (배경 역할) */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
 
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to right,
-        rgba(245, 245, 247, 0.96) 0%,
-        rgba(245, 245, 247, 0.88) 26%,
-        rgba(245, 245, 247, 0.55) 46%,
-        rgba(245, 245, 247, 0.12) 64%,
-        rgba(245, 245, 247, 0) 78%
-      );
-      z-index: 2;
-    }
+.hero-bg img {
+  position: absolute;
+  right: 0;
+  top: 6%;
+  width: 40%;
+  height: auto;
+}
 
-    .hero-top {
-      position: absolute;
-      top: 28px;
-      right: 28px;
-      z-index: 5;
-    }
+/* 텍스트 가독성용 아주 약한 그라데이션 */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0.95) 0%,
+    rgba(255,255,255,0.85) 30%,
+    rgba(255,255,255,0.4) 55%,
+    rgba(255,255,255,0) 75%
+  );
+}
 
-    .mode-button {
-      border: none;
-      border-radius: 999px;
-      background: #111111;
-      color: white;
-      padding: 14px 22px;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-    }
+/* 다크모드 버튼 */
+.hero-top {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  z-index: 5;
+}
 
-    .hero-inner {
-      position: relative;
-      z-index: 4;
-      max-width: 1440px;
-      margin: 0 auto;
-      min-height: 78vh;
-      display: flex;
-      align-items: center;
-      padding: 0 56px;
-    }
+.mode-button {
+  border: none;
+  border-radius: 999px;
+  background: #111;
+  color: white;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
 
-    .hero-copy {
-      max-width: 760px;
-      margin-top: -20px;
-    }
+/* 내부 레이아웃 */
+.hero-inner {
+  position: relative;
+  z-index: 4;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 72vh;
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+}
 
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 18px;
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
+/* 텍스트 영역 */
+.hero-copy {
+  max-width: 720px;
+}
 
-    .hero-title {
-      margin: 0;
-      font-size: clamp(72px, 8vw, 108px);
-      line-height: 0.9;
-      letter-spacing: -0.07em;
-      font-weight: 700;
-    }
+/* PORTFOLIO */
+.eyebrow {
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: #6b7280;
+  margin-bottom: 16px;
+}
 
-    .hero-desc {
-      margin-top: 24px;
-      margin-bottom: 34px;
-      max-width: 760px;
-      font-size: clamp(28px, 3.2vw, 38px);
-      line-height: 1.2;
-      letter-spacing: -0.04em;
-      color: #2f3136;
-      font-weight: 500;
-    }
+/* 이름 */
+.hero-title {
+  font-size: clamp(70px, 7vw, 100px);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  margin: 0;
+}
 
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
+/* 설명 */
+.hero-desc {
+  margin-top: 24px;
+  font-size: clamp(26px, 2.8vw, 36px);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: #333;
+}
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 170px;
-      padding: 15px 24px;
-      border-radius: 999px;
-      font-size: 17px;
-      font-weight: 600;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
+/* 버튼 */
+.hero-actions {
+  margin-top: 34px;
+  display: flex;
+  gap: 14px;
+}
 
-    .btn:hover {
-      transform: translateY(-1px);
-      opacity: 0.97;
-    }
+.btn {
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+}
 
-    .btn-primary {
-      background: #111111;
-      color: #ffffff;
-    }
+.btn-primary {
+  background: #111;
+  color: white;
+}
 
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.6);
-      color: #111111;
-      border: 1.5px solid rgba(17, 17, 17, 0.12);
-      backdrop-filter: blur(6px);
-    }
+.btn-secondary {
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(0,0,0,0.15);
+}
 
-    .section {
-      max-width: 1440px;
-      margin: 0 auto;
-      padding: 46px 40px 84px;
-    }
+/* ================= WORK ================= */
+.section {
+  padding: 80px 60px;
+  max-width: 1400px;
+  margin: auto;
+}
 
-    .section-title {
-      margin: 0 0 30px;
-      font-size: clamp(48px, 5vw, 76px);
-      line-height: 0.95;
-      letter-spacing: -0.07em;
-      font-weight: 700;
-    }
+.section-title {
+  font-size: 52px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-    }
+.cards {
+  display: flex;
+  gap: 24px;
+}
 
-    .card {
-      background: #ffffff;
-      border-radius: 28px;
-      padding: 30px 28px;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.06);
-      min-height: 290px;
-    }
+.card {
+  flex: 1;
+  padding: 28px;
+  border-radius: 20px;
+  background: #f5f5f7;
+}
 
-    .card-title {
-      margin: 0 0 14px;
-      font-size: 30px;
-      line-height: 1.12;
-      letter-spacing: -0.04em;
-      font-weight: 650;
-    }
+.card-title {
+  font-size: 22px;
+  font-weight: 700;
+}
 
-    .card-summary {
-      margin: 0 0 22px;
-      color: #61646b;
-      font-size: 19px;
-      line-height: 1.48;
-      letter-spacing: -0.02em;
-    }
+.card-desc {
+  margin-top: 10px;
+  color: #555;
+}
 
-    .card-button {
-      border: none;
-      border-radius: 999px;
-      background: #111111;
-      color: #ffffff;
-      padding: 12px 18px;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-    }
+/* ================= DARK MODE ================= */
+.dark {
+  background: #111;
+  color: #eee;
+}
 
-    .details {
-      display: none;
-      margin-top: 18px;
-      color: #61646b;
-      font-size: 16px;
-      line-height: 1.7;
-    }
+.dark .hero {
+  background: #111;
+}
 
-    .dark {
-      --bg: #0f1115;
-      --text: #f5f5f7;
-      --muted: #a7acb5;
-      --card: #17191d;
-      --line: rgba(255, 255, 255, 0.08);
-    }
+.dark .hero-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(17,17,17,0.95) 0%,
+    rgba(17,17,17,0.7) 40%,
+    rgba(17,17,17,0.2) 65%,
+    rgba(17,17,17,0) 80%
+  );
+}
 
-    .dark body {
-      background: var(--bg);
-      color: var(--text);
-    }
+.dark .btn-primary {
+  background: white;
+  color: black;
+}
 
-    .dark .hero {
-      background-color: #0f1115;
-    }
-
-    .dark .hero-overlay {
-      background: linear-gradient(
-        to right,
-        rgba(15, 17, 21, 0.94) 0%,
-        rgba(15, 17, 21, 0.84) 26%,
-        rgba(15, 17, 21, 0.48) 46%,
-        rgba(15, 17, 21, 0.12) 64%,
-        rgba(15, 17, 21, 0) 78%
-      );
-    }
-
-    .dark .mode-button {
-      background: #f5f5f7;
-      color: #111111;
-    }
-
-    .dark .hero-desc {
-      color: #d4d7dd;
-    }
-
-    .dark .btn-primary {
-      background: #f5f5f7;
-      color: #111111;
-    }
-
-    .dark .btn-secondary {
-      background: rgba(255,255,255,0.08);
-      color: #f5f5f7;
-      border-color: rgba(255,255,255,0.18);
-    }
-
-    .dark .card {
-      background: #17191d;
-      color: #f5f5f7;
-      box-shadow: none;
-    }
-
-    .dark .card-summary,
-    .dark .details {
-      color: #b9bec7;
-    }
-
-    .dark .card-button {
-      background: #f5f5f7;
-      color: #111111;
-    }
-
-    @media (max-width: 1200px) {
-      .hero-bg {
-        background-size: 66%;
-        background-position: 100% bottom;
-      }
-    }
-
-    @media (max-width: 980px) {
-      .hero-inner {
-        padding: 0 24px;
-      }
-
-      .hero-bg {
-        background-size: 82%;
-        background-position: 145% bottom;
-      }
-
-      .hero-copy {
-        max-width: 620px;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        padding: 38px 24px 64px;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .hero {
-        min-height: 70vh;
-      }
-
-      .hero-bg {
-        background-size: cover;
-        background-position: center bottom;
-      }
-
-      .hero-overlay {
-        background: linear-gradient(
-          to bottom,
-          rgba(245,245,247,0.84) 0%,
-          rgba(245,245,247,0.64) 36%,
-          rgba(245,245,247,0.25) 64%,
-          rgba(245,245,247,0.12) 100%
-        );
-      }
-
-      .dark .hero-overlay {
-        background: linear-gradient(
-          to bottom,
-          rgba(15,17,21,0.84) 0%,
-          rgba(15,17,21,0.64) 36%,
-          rgba(15,17,21,0.25) 64%,
-          rgba(15,17,21,0.12) 100%
-        );
-      }
-
-      .hero-title {
-        font-size: 58px;
-      }
-
-      .hero-desc {
-        font-size: 23px;
-      }
-
-      .hero-top {
-        top: 18px;
-        right: 18px;
-      }
-    }
-  </style>
+.dark .btn-secondary {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+}
+</style>
 </head>
+
 <body>
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
 
-    <div class="hero-top">
-      <button class="mode-button" id="modeButton" onclick="toggleDarkMode()">Dark Mode</button>
+<section class="hero">
+
+  <div class="hero-bg">
+    <img src="hero.png" alt="profile">
+  </div>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-top">
+    <button class="mode-button" id="modeButton" onclick="toggleDarkMode()">Dark Mode</button>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-copy">
+
+      <div class="eyebrow">PORTFOLIO</div>
+
+      <h1 class="hero-title">Ian Lee</h1>
+
+      <div class="hero-desc">
+        Building across AI, Data, and Product with a focus on practical systems and thoughtful user experience.
+      </div>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="mailto:seokinlee0130@gmail.com">View Email</a>
+        <a class="btn btn-secondary" href="https://www.linkedin.com/in/seokin-lee" target="_blank">View LinkedIn</a>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<section class="section">
+  <div class="section-title">Selected Work</div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-title">Hyundai Motor Group</div>
+      <div class="card-desc">Data-driven market analysis and strategy support.</div>
     </div>
 
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <div class="eyebrow">Portfolio</div>
-        <h1 class="hero-title">Ian Lee</h1>
-        <div class="hero-desc">
-          Building across AI, Data, and Product with a focus on practical systems and thoughtful user experience.
-        </div>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="mailto:seokinlee0130@gmail.com">View Email</a>
-          <a class="btn btn-secondary" href="https://www.linkedin.com/in/seokin-lee" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
-        </div>
-      </div>
+    <div class="card">
+      <div class="card-title">AI Scheduling Assistant</div>
+      <div class="card-desc">Multi-turn scheduling system with improved UX.</div>
     </div>
-  </section>
 
-  <section class="section">
-    <h2 class="section-title">Selected Work</h2>
-
-    <div class="cards">
-      <div class="card">
-        <h3 class="card-title">Hyundai Motor Group</h3>
-        <p class="card-summary">Data-driven market analysis and strategy support.</p>
-        <button class="card-button" onclick="toggleDetails('project1')">Show More</button>
-        <div class="details" id="project1">
-          Consolidated 1,000+ data points into a structured dataset using SQL and VBA, built a centralized tracking system for cross-market analysis, and identified misalignment between vehicle launch timing and marketing execution.
-        </div>
-      </div>
-
-      <div class="card">
-        <h3 class="card-title">AI Scheduling Assistant</h3>
-        <p class="card-summary">Multi-turn scheduling app with improved user flow.</p>
-        <button class="card-button" onclick="toggleDetails('project2')">Show More</button>
-        <div class="details" id="project2">
-          Improved user flow for vague requests, explored calendar integrations, and worked on a more reliable AI-assisted scheduling experience that asks clarifying questions before acting.
-        </div>
-      </div>
-
-      <div class="card">
-        <h3 class="card-title">Fashion Extension</h3>
-        <p class="card-summary">AI-supported scoring and recommendation workflow.</p>
-        <button class="card-button" onclick="toggleDetails('project3')">Show More</button>
-        <div class="details" id="project3">
-          Worked on the AI workflow for a browser extension that connects user preferences, product data, and personalized scoring logic to support fashion recommendations.
-        </div>
-      </div>
+    <div class="card">
+      <div class="card-title">Fashion Extension</div>
+      <div class="card-desc">AI-based scoring and recommendation workflow.</div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <script>
-    function toggleDetails(id) {
-      const section = document.getElementById(id);
-      section.style.display = section.style.display === "block" ? "none" : "block";
-    }
+<script>
+function toggleDarkMode() {
+  document.body.classList.toggle("dark");
+  const btn = document.getElementById("modeButton");
 
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark");
-      const button = document.getElementById("modeButton");
-      button.textContent = document.body.classList.contains("dark") ? "Light Mode" : "Dark Mode";
-    }
-  </script>
+  if (document.body.classList.contains("dark")) {
+    btn.innerText = "Light Mode";
+  } else {
+    btn.innerText = "Dark Mode";
+  }
+}
+</script>
+
 </body>
 </html>
