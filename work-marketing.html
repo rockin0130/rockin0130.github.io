@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data-Driven Global Marketing Integration — Ian Lee</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  background: #fff;
+  color: #111;
+  line-height: 1.6;
+}
+.project-header {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 48px 24px 24px;
+}
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0066cc;
+  text-decoration: none;
+  margin-bottom: 24px;
+}
+.back:hover { text-decoration: underline; }
+h1 {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0 0 16px;
+  line-height: 1.15;
+}
+.lead {
+  font-size: 19px;
+  color: #444;
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin-bottom: 32px;
+}
+.meta a {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.25s ease;
+}
+.meta a:hover { background: #333; }
+.meta a.secondary {
+  background: #f5f5f7;
+  color: #111;
+}
+.meta a.secondary:hover { background: #e8e8ea; }
+.project-body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+.project-body h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 40px 0 12px;
+  letter-spacing: -0.02em;
+}
+.project-body p { margin: 0 0 16px; color: #333; }
+.gallery {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.gallery img {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+  background: #f5f5f7;
+}
+.top-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 20px 24px;
+  z-index: 10;
+}
+.mode-button {
+  border: none;
+  border-radius: 999px;
+  background: #111;
+  color: white;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.mode-button:hover { background: #333; }
+.dark {
+  background: #111;
+  color: #eee;
+}
+.dark .lead { color: #b0b0b0; }
+.dark .project-body p { color: #c8c8c8; }
+.dark .meta a.secondary {
+  background: #2a2a2a;
+  color: #fff;
+}
+.dark .meta a.secondary:hover { background: #3a3a3a; }
+.dark .mode-button { background: #fff; color: #111; }
+.dark .mode-button:hover { background: #e5e5e5; }
+.dark .gallery img { background: #222; }
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <button type="button" class="mode-button" id="modeButton" onclick="toggleDarkMode()">Dark Mode</button>
+</div>
+<header class="project-header">
+  <a class="back" href="index.html">← Back to home</a>
+  <h1>Data-Driven Global Marketing Integration</h1>
+  <p class="lead">Analytics, reporting, and strategic alignment for global marketing — connecting regional initiatives to centralized KPIs and executive-ready narratives.</p>
+  <div class="meta">
+    <!-- Replace href with your repository URL -->
+    <a href="https://github.com/rockin0130" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a class="secondary" href="index.html#work">Selected Work</a>
+  </div>
+</header>
+<article class="project-body">
+  <h2>Overview</h2>
+  <p>This project focused on integrating disparate marketing data sources into a coherent view for global stakeholders. The goal was to reduce manual reporting, improve consistency of metrics across regions, and surface actionable insights for campaign optimization.</p>
+  <h2>What I did</h2>
+  <p>Defined core metrics and data contracts, supported pipeline design for reliable ingestion, and helped translate technical outputs into dashboards and summaries that non-technical partners could trust and act on.</p>
+  <h2>Outcome</h2>
+  <p>A more unified story across markets — faster answers to “what’s working where,” and less time spent reconciling numbers between teams.</p>
+  <div class="gallery">
+    <img src="images/hyundai.png" alt="Marketing integration — main screenshot" width="1600" height="1000" loading="lazy">
+    <!-- Optional: add more files in images/ (e.g. marketing-detail-2.png) and paste another <img> here -->
+  </div>
+</article>
+<script>
+function toggleDarkMode() {
+  document.body.classList.toggle("dark");
+  document.getElementById("modeButton").innerText =
+    document.body.classList.contains("dark") ? "Light Mode" : "Dark Mode";
+}
+</script>
+</body>
+</html>
