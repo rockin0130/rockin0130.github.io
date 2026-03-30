@@ -18,20 +18,21 @@ body {
   color: #111;
 }
 
-/* ================= HERO (full-width: text left, photo via background right) ================= */
+/* ================= HERO (background only — no <img>) ================= */
 .hero {
   position: relative;
   width: 100%;
-  min-height: max(80vh, 600px);
+  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   padding: 72px 60px 64px;
   overflow: hidden;
   background-color: #e8e8e8;
   background-image: url("hero.png");
-  background-repeat: no-repeat;
-  background-position: right center;
   background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
 }
 
 .hero::before {
@@ -50,7 +51,7 @@ body {
   pointer-events: none;
 }
 
-.hero-inner {
+.hero-content {
   position: relative;
   z-index: 2;
   width: 100%;
@@ -61,7 +62,7 @@ body {
   align-items: center;
 }
 
-.hero-copy {
+.hero-text {
   flex: 0 1 auto;
   max-width: min(640px, 52vw);
 }
@@ -172,16 +173,8 @@ body {
 .section-title {
   font-size: clamp(32px, 4.5vw, 48px);
   font-weight: 700;
-  margin: 0 0 8px;
-  letter-spacing: -0.03em;
-}
-
-.section-sub {
-  font-size: 17px;
-  color: #6b7280;
   margin: 0 0 40px;
-  max-width: 520px;
-  line-height: 1.5;
+  letter-spacing: -0.03em;
 }
 
 .work-carousel {
@@ -214,10 +207,10 @@ body {
   position: relative;
   color: #fff;
   background-color: #2a272e;
-  background-image: var(--slide-bg);
-  background-repeat: no-repeat;
-  background-position: center;
+  /* Per-slide url() set inline — same pattern as .hero */
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .work-slide::before {
@@ -395,9 +388,11 @@ body {
 .dark .hero {
   background-color: #1a1a1a;
   background-image: url("hero.png");
-  background-repeat: no-repeat;
-  background-position: right center;
   background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  min-height: 100vh;
 }
 
 .dark .hero::before {
@@ -422,19 +417,16 @@ body {
   background: #111;
 }
 
-.dark .section-sub {
-  color: #9ca3af;
-}
-
 /* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
   .hero {
     padding: 88px 24px 48px;
-    min-height: max(85vh, 520px);
+    height: 100vh;
+    min-height: 100vh;
     background-position: right center;
   }
 
-  .hero-copy {
+  .hero-text {
     max-width: 100%;
   }
 
@@ -488,8 +480,8 @@ body {
     <button type="button" class="mode-button" id="modeButton" onclick="toggleDarkMode()">Dark Mode</button>
   </div>
 
-  <div class="hero-inner">
-    <div class="hero-copy">
+  <div class="hero-content">
+    <div class="hero-text">
       <div class="eyebrow">Portfolio</div>
       <h1 class="hero-title">Ian Lee</h1>
       <div class="hero-desc">
@@ -507,7 +499,6 @@ body {
 <section class="section" id="work">
   <div class="section-inner">
     <h2 class="section-title">Selected Work</h2>
-    <p class="section-sub">One project at a time — swipe or use arrows to explore.</p>
 
     <div class="work-carousel" id="workCarousel" aria-roledescription="carousel">
       <button type="button" class="carousel-arrow carousel-arrow--prev" id="carouselPrev" aria-label="Previous project">
@@ -521,12 +512,12 @@ body {
         <div class="work-carousel-track" id="carouselTrack">
           <article
             class="work-slide"
-            style="--slide-bg: url('images/hyundai.png');"
+            style="background-image: url('images/hyundai.png');"
             aria-label="1 of 3"
           >
             <div class="work-slide-inner">
-              <h3 class="work-slide-title">Hyundai Motor Group</h3>
-              <p class="work-slide-desc">Data-driven market analysis and strategy support — connecting regional insight to global marketing and executive storytelling.</p>
+              <h3 class="work-slide-title">Data-Driven Global Marketing Integration</h3>
+              <p class="work-slide-desc">Hyundai Motor Group | Data Assistant</p>
               <div class="work-slide-actions">
                 <a class="work-link-learn" href="work-marketing.html">Learn More</a>
               </div>
@@ -534,12 +525,12 @@ body {
           </article>
           <article
             class="work-slide"
-            style="--slide-bg: url('images/ai-assistant.png');"
+            style="background-image: url('images/ai-assistant.png');"
             aria-label="2 of 3"
           >
             <div class="work-slide-inner">
               <h3 class="work-slide-title">AI Scheduling Assistant</h3>
-              <p class="work-slide-desc">A multi-turn conversational assistant that reduces scheduling friction with natural language understanding and clear confirmation flows.</p>
+              <p class="work-slide-desc">WideCity | Lead Product Engineer</p>
               <div class="work-slide-actions">
                 <a class="work-link-learn" href="work-ai-scheduling.html">Learn More</a>
               </div>
@@ -547,12 +538,12 @@ body {
           </article>
           <article
             class="work-slide"
-            style="--slide-bg: url('images/fashion-extension.png');"
+            style="background-image: url('images/fashion.png');"
             aria-label="3 of 3"
           >
             <div class="work-slide-inner">
               <h3 class="work-slide-title">Fashion Extension</h3>
-              <p class="work-slide-desc">An AI-assisted workflow for scoring and recommending fashion items, built around explainable signals and designer-friendly tooling.</p>
+              <p class="work-slide-desc">Marshall Artificial Intelligence | Lead AI Engineer</p>
               <div class="work-slide-actions">
                 <a class="work-link-learn" href="work-fashion.html">Learn More</a>
               </div>
