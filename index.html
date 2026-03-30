@@ -416,18 +416,47 @@ body {
   color: #111;
 }
 
-.dark .btn-primary,
-.dark .btn-secondary {
-  background: #fff;
-  color: #111;
-  border: 1px solid transparent;
+.dark .btn-primary {
+  background: white;
+  color: black;
 }
 
-.dark .btn-primary:hover,
+.dark .btn-primary:hover {
+  background: #e5e5e5;
+  color: black;
+}
+
+.dark .btn-secondary {
+  background: rgba(255, 255, 255, 0.9);
+  color: black;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 .dark .btn-secondary:hover {
-  background: #e8e8e8;
-  color: #111;
-  border-color: transparent;
+  background: white;
+  color: black;
+}
+
+/* Hero: higher specificity so CTAs stay visible over the hero overlay */
+.dark .hero .btn-primary {
+  background: white;
+  color: black;
+}
+
+.dark .hero .btn-primary:hover {
+  background: #e5e5e5;
+  color: black;
+}
+
+.dark .hero .btn-secondary {
+  background: rgba(255, 255, 255, 0.9);
+  color: black;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .hero .btn-secondary:hover {
+  background: white;
+  color: black;
 }
 
 .dark .work-link-learn {
