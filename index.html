@@ -74,15 +74,6 @@ body {
   background: #333;
 }
 
-.eyebrow {
-  font-size: 13px;
-  letter-spacing: 0.16em;
-  font-weight: 700;
-  color: #6b7280;
-  margin-bottom: 16px;
-  text-transform: uppercase;
-}
-
 .hero-title {
   font-size: clamp(42px, 6vw, 72px);
   font-weight: 700;
@@ -93,12 +84,22 @@ body {
 }
 
 .hero-desc {
-  margin-top: 20px;
+  margin-top: 18px;
   font-size: clamp(18px, 2vw, 24px);
   line-height: 1.45;
   letter-spacing: -0.015em;
   color: #1a1a1a;
   font-weight: 400;
+}
+
+.hero-subline {
+  margin-top: 12px;
+  font-size: clamp(14px, 1.5vw, 17px);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: #6b7280;
+  font-weight: 400;
+  max-width: 36em;
 }
 
 .hero-actions {
@@ -395,13 +396,45 @@ body {
   z-index: 2;
 }
 
+.dark .hero .hero-title,
+.dark .hero .hero-desc {
+  color: #fff;
+}
+
+.dark .hero .hero-subline {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* Dark mode: all pill / rounded CTA buttons match View Email (black bg, white text) */
 .dark .mode-button {
-  background: white;
-  color: black;
+  background: #111;
+  color: #fff;
 }
 
 .dark .mode-button:hover {
-  background: #e5e5e5;
+  background: #333;
+}
+
+.dark .btn-primary,
+.dark .btn-secondary {
+  background: #111;
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.dark .btn-primary:hover,
+.dark .btn-secondary:hover {
+  background: #333;
+  border-color: transparent;
+}
+
+.dark .work-link-learn {
+  background: #111;
+  color: #fff;
+}
+
+.dark .work-link-learn:hover {
+  background: #333;
 }
 
 .dark .section {
@@ -473,11 +506,9 @@ body {
 
   <div class="hero-content">
     <div class="hero-text">
-      <div class="eyebrow">Portfolio</div>
       <h1 class="hero-title">Ian Lee</h1>
-      <div class="hero-desc">
-        Building across AI, Data, and Product with a focus on practical systems and thoughtful user experience.
-      </div>
+      <p class="hero-desc">Make it work. Then make it better.</p>
+      <p class="hero-subline">Building AI systems that actually ship.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="mailto:seokinlee0130@gmail.com">View Email</a>
         <a class="btn btn-secondary" href="https://www.linkedin.com/in/seokin-lee" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
@@ -534,7 +565,7 @@ body {
           >
             <div class="work-slide-inner">
               <h3 class="work-slide-title">Fashion Extension</h3>
-              <p class="work-slide-desc">Marshall Artificial Intelligence | Lead AI Engineer</p>
+              <p class="work-slide-desc">Marshall Artificial Intelligence Association | Lead AI Engineer</p>
               <div class="work-slide-actions">
                 <a class="work-link-learn" href="work-fashion.html">Learn More</a>
               </div>
