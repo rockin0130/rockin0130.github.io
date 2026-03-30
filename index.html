@@ -18,50 +18,42 @@ body {
   color: #111;
 }
 
-/* ================= HERO ================= */
+/* ================= HERO (full-bleed background) ================= */
 .hero {
   position: relative;
-  min-height: 0;
-  padding: 72px 60px 56px;
-  overflow: visible;
-  background: #f5f5f7;
-  background-image: none;
+  min-height: clamp(380px, 58vh, 720px);
+  padding: 72px 60px 64px;
+  overflow: hidden;
+  background-color: #e8e8e8;
+  background-image: url("hero.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.38) 38%,
+    rgba(0, 0, 0, 0.18) 70%,
+    rgba(0, 0, 0, 0.12) 100%
+  );
+  z-index: 1;
 }
 
 .hero-inner {
+  position: relative;
+  z-index: 2;
   max-width: 1100px;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: clamp(32px, 5vw, 64px);
 }
 
 .hero-copy {
-  flex: 1;
-  min-width: 0;
   max-width: 640px;
-}
-
-.hero-visual {
-  flex-shrink: 0;
-  width: min(100%, 320px);
-  max-width: 38vw;
-}
-
-.hero-photo-wrap {
-  border-radius: 24px;
-  overflow: hidden;
-  aspect-ratio: 4 / 5;
-  background: #e5e5e7;
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.08);
-}
-
-.hero-photo {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
 }
 
 .hero-top {
@@ -91,7 +83,7 @@ body {
   font-size: 13px;
   letter-spacing: 0.16em;
   font-weight: 700;
-  color: #6b7280;
+  color: rgba(255, 255, 255, 0.75);
   margin-bottom: 16px;
   text-transform: uppercase;
 }
@@ -102,6 +94,7 @@ body {
   letter-spacing: -0.04em;
   margin: 0;
   line-height: 1.02;
+  color: #ffffff;
 }
 
 .hero-desc {
@@ -109,7 +102,7 @@ body {
   font-size: clamp(18px, 2vw, 24px);
   line-height: 1.45;
   letter-spacing: -0.015em;
-  color: #1a1a1a;
+  color: rgba(255, 255, 255, 0.92);
   font-weight: 400;
 }
 
@@ -133,35 +126,24 @@ body {
 }
 
 .btn-primary {
-  background: #111;
-  color: white;
+  background: #ffffff;
+  color: #111;
 }
 
 .btn-primary:hover {
-  background: #333;
+  background: #f0f0f0;
   transform: translateY(-2px);
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  color: #111;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  color: #ffffff;
 }
 
 .btn-secondary:hover {
-  background: #fff;
-  border-color: rgba(0, 0, 0, 0.2);
-  transform: translateY(-2px);
-}
-
-.btn-ghost {
-  background: transparent;
-  color: inherit;
-  border: 1px solid rgba(0, 0, 0, 0.18);
-}
-
-.btn-ghost:hover {
-  border-color: rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.65);
   transform: translateY(-2px);
 }
 
@@ -193,10 +175,11 @@ body {
 }
 
 .work-carousel {
+  --slide-count: 3;
   position: relative;
   border-radius: 28px;
   overflow: hidden;
-  background: #3d3a42;
+  background: #2a272e;
   min-height: min(72vh, 560px);
   box-shadow: 0 32px 64px rgba(0, 0, 0, 0.12);
 }
@@ -209,27 +192,48 @@ body {
 
 .work-carousel-track {
   display: flex;
+  width: calc(var(--slide-count) * 100%);
+  min-height: min(72vh, 560px);
   transition: transform 0.55s cubic-bezier(0.25, 0.1, 0.25, 1);
-  height: 100%;
 }
 
 .work-slide {
-  flex: 0 0 100%;
-  width: 100%;
+  flex: 0 0 calc(100% / var(--slide-count));
+  width: calc(100% / var(--slide-count));
   min-height: min(72vh, 560px);
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
+  position: relative;
   color: #fff;
+  background-color: #2a272e;
+  background-image: var(--slide-bg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
-.work-slide-copy {
-  flex: 0 0 42%;
-  max-width: 480px;
-  padding: clamp(36px, 6vw, 64px);
+.work-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(0, 0, 0, 0.78) 0%,
+    rgba(0, 0, 0, 0.42) 42%,
+    rgba(0, 0, 0, 0.22) 100%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.work-slide-inner {
+  position: relative;
+  z-index: 1;
+  min-height: min(72vh, 560px);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
+  padding: clamp(36px, 6vw, 64px);
+  max-width: 540px;
   gap: 16px;
 }
 
@@ -244,44 +248,30 @@ body {
 .work-slide-desc {
   font-size: clamp(15px, 1.6vw, 18px);
   line-height: 1.55;
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.9);
   margin: 0;
 }
 
 .work-slide-actions {
-  display: flex;
-  align-items: center;
-  gap: 18px;
   margin-top: 8px;
-  flex-wrap: wrap;
 }
 
 .work-link-learn {
-  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 26px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #111;
   font-size: 15px;
   font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  transition: opacity 0.2s ease;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
 
-.work-link-learn:hover {
-  opacity: 0.85;
-}
-
-.work-slide-visual {
-  flex: 1;
-  min-height: 280px;
-  position: relative;
-  background: #2a272e;
-}
-
-.work-slide-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
+.work-slide-actions .work-link-learn:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
 }
 
 .carousel-arrow {
@@ -393,36 +383,16 @@ body {
 }
 
 .dark .hero {
-  background: #1a1a1a;
+  background-color: #1a1a1a;
 }
 
-.dark .hero-title,
-.dark .hero-desc {
-  color: #ffffff;
-}
-
-.dark .eyebrow {
-  color: #9ca3af;
-}
-
-.dark .btn-primary {
-  background: white;
-  color: black;
-}
-
-.dark .btn-primary:hover {
-  background: #e5e5e5;
-}
-
-.dark .btn-secondary {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
-}
-
-.dark .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
+.dark .hero::before {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.5) 45%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
 }
 
 .dark .mode-button {
@@ -442,76 +412,11 @@ body {
   color: #9ca3af;
 }
 
-.dark .hero-photo-wrap {
-  background: #2a2a2a;
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
-}
-
-.dark .btn-ghost {
-  border-color: rgba(255, 255, 255, 0.35);
-  color: #fff;
-}
-
-.dark .btn-ghost:hover {
-  border-color: rgba(255, 255, 255, 0.55);
-}
-
-/* Pill button on dark slides */
-.work-slide .btn-primary {
-  background: #fff;
-  color: #111;
-}
-
-.work-slide .btn-primary:hover {
-  background: #e8e8e8;
-}
-
 /* ================= RESPONSIVE ================= */
-@media (max-width: 900px) {
-  .work-slide {
-    flex-direction: column-reverse;
-  }
-
-  .work-slide-copy {
-    flex: none;
-    max-width: none;
-    width: 100%;
-    padding: 32px 28px 36px;
-  }
-
-  .work-slide-visual {
-    min-height: 240px;
-    flex: 0 0 auto;
-    aspect-ratio: 16 / 10;
-  }
-
-  .work-carousel,
-  .work-carousel-viewport,
-  .work-slide {
-    min-height: 0;
-  }
-}
-
 @media (max-width: 768px) {
   .hero {
-    padding: 88px 24px 40px;
-  }
-
-  .hero-inner {
-    flex-direction: column-reverse;
-    align-items: flex-start;
-    text-align: left;
-  }
-
-  .hero-visual {
-    width: 100%;
-    max-width: 240px;
-    align-self: center;
-  }
-
-  .hero-photo-wrap {
-    aspect-ratio: 1;
-    border-radius: 20px;
+    padding: 88px 24px 48px;
+    min-height: 420px;
   }
 
   .section-inner {
@@ -520,6 +425,18 @@ body {
 
   .section {
     padding: 56px 0 72px;
+  }
+
+  .work-slide-inner {
+    min-height: min(68vh, 520px);
+    padding: 32px 24px 100px;
+    max-width: none;
+  }
+
+  .work-carousel,
+  .work-carousel-viewport,
+  .work-carousel-track {
+    min-height: min(68vh, 520px);
   }
 
   .carousel-arrow {
@@ -564,12 +481,6 @@ body {
         <a class="btn btn-secondary" href="https://www.linkedin.com/in/seokin-lee" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="hero-photo-wrap">
-        <!-- Profile image: place file at images/profile.jpg (or update src below) -->
-        <img class="hero-photo" src="images/profile.jpg" alt="Ian Lee" width="640" height="800">
-      </div>
-    </div>
   </div>
 
 </section>
@@ -589,46 +500,43 @@ body {
 
       <div class="work-carousel-viewport" id="carouselViewport">
         <div class="work-carousel-track" id="carouselTrack">
-          <!-- Slide 1 -->
-          <article class="work-slide" aria-label="1 of 3">
-            <div class="work-slide-copy">
-              <h3 class="work-slide-title">Data-Driven Global Marketing Integration</h3>
-              <p class="work-slide-desc">Unified analytics and campaign insights to align regional marketing with global strategy — from data pipelines to stakeholder dashboards.</p>
+          <article
+            class="work-slide"
+            style="--slide-bg: url('images/hyundai.png');"
+            aria-label="1 of 3"
+          >
+            <div class="work-slide-inner">
+              <h3 class="work-slide-title">Hyundai Motor Group</h3>
+              <p class="work-slide-desc">Data-driven market analysis and strategy support — connecting regional insight to global marketing and executive storytelling.</p>
               <div class="work-slide-actions">
-                <a class="work-link-learn" href="work-marketing.html">Learn more</a>
-                <a class="btn btn-primary" href="work-marketing.html">View Details</a>
+                <a class="work-link-learn" href="work-marketing.html">Learn More</a>
               </div>
             </div>
-            <div class="work-slide-visual">
-              <img class="work-slide-img" src="images/hyundai.png" alt="Data-Driven Global Marketing Integration project screenshot" width="1200" height="800" loading="lazy">
-            </div>
           </article>
-          <!-- Slide 2 -->
-          <article class="work-slide" aria-label="2 of 3">
-            <div class="work-slide-copy">
+          <article
+            class="work-slide"
+            style="--slide-bg: url('images/ai-assistant.png');"
+            aria-label="2 of 3"
+          >
+            <div class="work-slide-inner">
               <h3 class="work-slide-title">AI Scheduling Assistant</h3>
               <p class="work-slide-desc">A multi-turn conversational assistant that reduces scheduling friction with natural language understanding and clear confirmation flows.</p>
               <div class="work-slide-actions">
-                <a class="work-link-learn" href="work-ai-scheduling.html">Learn more</a>
-                <a class="btn btn-primary" href="work-ai-scheduling.html">View Details</a>
+                <a class="work-link-learn" href="work-ai-scheduling.html">Learn More</a>
               </div>
             </div>
-            <div class="work-slide-visual">
-              <img class="work-slide-img" src="images/ai-assistant.png" alt="AI Scheduling Assistant project screenshot" width="1200" height="800" loading="lazy">
-            </div>
           </article>
-          <!-- Slide 3 -->
-          <article class="work-slide" aria-label="3 of 3">
-            <div class="work-slide-copy">
+          <article
+            class="work-slide"
+            style="--slide-bg: url('images/fashion-extension.png');"
+            aria-label="3 of 3"
+          >
+            <div class="work-slide-inner">
               <h3 class="work-slide-title">Fashion Extension</h3>
               <p class="work-slide-desc">An AI-assisted workflow for scoring and recommending fashion items, built around explainable signals and designer-friendly tooling.</p>
               <div class="work-slide-actions">
-                <a class="work-link-learn" href="work-fashion.html">Learn more</a>
-                <a class="btn btn-primary" href="work-fashion.html">View Details</a>
+                <a class="work-link-learn" href="work-fashion.html">Learn More</a>
               </div>
-            </div>
-            <div class="work-slide-visual">
-              <img class="work-slide-img" src="images/fashion-extension.png" alt="Fashion Extension project screenshot" width="1200" height="800" loading="lazy">
             </div>
           </article>
         </div>
@@ -664,6 +572,7 @@ function toggleDarkMode() {
 
   const slides = track.querySelectorAll(".work-slide");
   const total = slides.length;
+  document.getElementById("workCarousel").style.setProperty("--slide-count", String(total));
   let index = 0;
   let autoplayOn = false;
   let autoplayTimer = null;
@@ -692,7 +601,8 @@ function toggleDarkMode() {
 
   function goTo(i) {
     index = (i + total) % total;
-    track.style.transform = "translateX(-" + index * 100 + "%)";
+    var pct = (100 / total) * index;
+    track.style.transform = "translateX(-" + pct + "%)";
     updateProgress();
   }
 
@@ -750,14 +660,14 @@ function toggleDarkMode() {
     if (e.key === "ArrowRight") next();
   });
 
-  let touchStartX = null;
+  var touchStartX = null;
   viewport.addEventListener("touchstart", function (e) {
     touchStartX = e.changedTouches[0].screenX;
   }, { passive: true });
 
   viewport.addEventListener("touchend", function (e) {
     if (touchStartX === null) return;
-    const dx = e.changedTouches[0].screenX - touchStartX;
+    var dx = e.changedTouches[0].screenX - touchStartX;
     if (dx < -40) next();
     if (dx > 40) prev();
     touchStartX = null;
