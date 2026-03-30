@@ -190,39 +190,16 @@ body {
   width: calc(100% / var(--slide-count));
   min-height: min(72vh, 560px);
   position: relative;
-  color: #fff;
-  background-color: #2a272e;
+  color: #111;
+  background-color: #f5f5f7;
   /* Per-slide url() set inline — same pattern as .hero */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.work-slide::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  /* Base dim + left-heavy gradient for white/bright skies (text on left) */
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(0, 0, 0, 0.08) 45%,
-      rgba(0, 0, 0, 0.28) 100%
-    ),
-    linear-gradient(
-      105deg,
-      rgba(0, 0, 0, 0.82) 0%,
-      rgba(0, 0, 0, 0.48) 48%,
-      rgba(0, 0, 0, 0.32) 100%
-    );
-  z-index: 0;
-  pointer-events: none;
-}
-
 .work-slide-inner {
   position: relative;
-  z-index: 1;
   min-height: min(72vh, 560px);
   display: flex;
   flex-direction: column;
@@ -239,12 +216,13 @@ body {
   letter-spacing: -0.03em;
   margin: 0;
   line-height: 1.1;
+  color: #111;
 }
 
 .work-slide-desc {
   font-size: clamp(15px, 1.6vw, 18px);
   line-height: 1.55;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.72);
   margin: 0;
 }
 
@@ -499,6 +477,36 @@ body {
 
 .dark .section {
   background: #111;
+}
+
+.dark .work-slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.dark .work-slide > * {
+  position: relative;
+  z-index: 2;
+}
+
+.dark .work-slide {
+  color: #fff;
+  background-color: #2a272e;
+}
+
+.dark .work-slide-title {
+  color: #fff;
+}
+
+.dark .work-slide-desc {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* ================= RESPONSIVE ================= */
