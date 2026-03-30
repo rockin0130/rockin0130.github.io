@@ -116,19 +116,32 @@ h1 {
 .dark .project-body p { color: #c8c8c8; }
 .dark .meta a,
 .dark .meta a.secondary {
-  background: #111;
-  color: #fff;
+  background: #fff;
+  color: #111;
 }
 .dark .meta a:hover,
 .dark .meta a.secondary:hover {
-  background: #333;
+  background: #e8e8e8;
+  color: #111;
 }
 .dark .mode-button {
-  background: #111;
-  color: #fff;
+  background: #fff;
+  color: #111;
 }
 .dark .mode-button:hover {
-  background: #333;
+  background: #e8e8e8;
+  color: #111;
+}
+.dark .back {
+  color: #111;
+  background: #fff;
+  padding: 10px 18px;
+  border-radius: 999px;
+}
+.dark .back:hover {
+  background: #e8e8e8;
+  color: #111;
+  text-decoration: none;
 }
 .dark .gallery img { background: #222; }
 </style>
@@ -140,19 +153,25 @@ h1 {
 <header class="project-header">
   <a class="back" href="index.html">← Back to home</a>
   <h1>Fashion Extension</h1>
-  <p class="lead">Marshall Artificial Intelligence | Lead AI Engineer</p>
+  <p class="lead">Marshall Artificial Intelligence Association | Lead AI Engineer</p>
   <div class="meta">
     <a href="https://github.com/rockin0130" target="_blank" rel="noopener noreferrer">GitHub</a>
-    <a class="secondary" href="index.html#work">Selected Work</a>
   </div>
 </header>
 <article class="project-body">
   <h2>Overview</h2>
-  <p>The extension supports a workflow where items are evaluated against defined criteria, ranked or tagged, and presented with enough context for humans to validate or override automated suggestions.</p>
-  <h2>What I did</h2>
-  <p>Partnered on scoring rubrics, UI for comparing candidates, and iteration loops so recommendations stay aligned with brand and merchandising goals.</p>
-  <h2>Outcome</h2>
-  <p>Faster triage of large catalogs and a clearer link between “why this score” and downstream decisions.</p>
+  <p>This project was developed as part of the Marshall Artificial Intelligence Association (MAIA) to address a common problem among users who lack confidence in their fashion decisions.</p>
+  <p>We built a browser extension that evaluates clothing items directly on e-commerce websites, providing a compatibility score and explanation based on a user's personal style profile.</p>
+  <p>The goal was to deliver real-time, personalized decision support embedded directly into the online shopping experience.</p>
+  <h2>What I Built</h2>
+  <p>As Lead AI Engineer, I designed the core AI system and defined how it integrates with the overall product pipeline.</p>
+  <p>I evaluated multiple approaches including rule-based methods, image classification, and embedding-based models, and selected an embedding-based style similarity model as the most scalable solution for the MVP.</p>
+  <p>I designed the end-to-end AI pipeline, where the extension extracts product data such as images and metadata and combines it with user profile inputs. The system converts these inputs into embeddings and computes a compatibility score based on similarity.</p>
+  <p>I also defined key AI capabilities including visual attribute analysis, user preference modeling, compatibility scoring, and explanation generation, ensuring outputs were both interpretable and actionable.</p>
+  <h2>Impact</h2>
+  <p>The MVP was successfully launched, and early testing demonstrated strong alignment between AI-generated scores and user preferences.</p>
+  <p>In a user survey, over 80% of participants (40 out of 50) reported that the recommendations closely matched their personal taste, validating the effectiveness of the system.</p>
+  <p>The project has been selected for a demo presentation to industry leaders, including the CEO of LinkedIn and the CFO of Google, highlighting both its technical depth and practical relevance.</p>
   <div class="gallery">
     <img src="images/fashion.png" alt="Fashion Extension screenshot" width="1600" height="1000" loading="lazy">
   </div>

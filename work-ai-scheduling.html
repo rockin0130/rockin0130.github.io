@@ -116,19 +116,32 @@ h1 {
 .dark .project-body p { color: #c8c8c8; }
 .dark .meta a,
 .dark .meta a.secondary {
-  background: #111;
-  color: #fff;
+  background: #fff;
+  color: #111;
 }
 .dark .meta a:hover,
 .dark .meta a.secondary:hover {
-  background: #333;
+  background: #e8e8e8;
+  color: #111;
 }
 .dark .mode-button {
-  background: #111;
-  color: #fff;
+  background: #fff;
+  color: #111;
 }
 .dark .mode-button:hover {
-  background: #333;
+  background: #e8e8e8;
+  color: #111;
+}
+.dark .back {
+  color: #111;
+  background: #fff;
+  padding: 10px 18px;
+  border-radius: 999px;
+}
+.dark .back:hover {
+  background: #e8e8e8;
+  color: #111;
+  text-decoration: none;
 }
 .dark .gallery img { background: #222; }
 </style>
@@ -140,19 +153,24 @@ h1 {
 <header class="project-header">
   <a class="back" href="index.html">← Back to home</a>
   <h1>AI Scheduling Assistant</h1>
-  <p class="lead">WideCity | Lead Product Engineer</p>
+  <p class="lead">WideCity | Product Engineer</p>
   <div class="meta">
     <a href="https://github.com/rockin0130" target="_blank" rel="noopener noreferrer">GitHub</a>
-    <a class="secondary" href="index.html#work">Selected Work</a>
   </div>
 </header>
 <article class="project-body">
   <h2>Overview</h2>
-  <p>The assistant helps users book and adjust meetings through multi-turn dialogue instead of rigid forms. Emphasis is on clarity: what was understood, what still needs a decision, and explicit confirmation before anything is finalized.</p>
-  <h2>What I did</h2>
-  <p>Designed dialogue flows and failure states, refined UX around confirmations and edits, and iterated on prompts and tooling so the system stays predictable for end users.</p>
-  <h2>Outcome</h2>
-  <p>Fewer back-and-forth emails and a scheduling flow that feels closer to talking to a thoughtful coordinator than filling out a calendar form.</p>
+  <p>Currently developing a startup product under the advisory of Edward Kim (CTO at Gusto), in collaboration with cross-functional team members across finance and law.</p>
+  <p>The product reimagines the traditional personal calendar into a shared, relationship-centric platform, enabling users to coordinate schedules with partners, friends, and family.</p>
+  <p>By integrating AI, the system allows flexible and personalized scheduling based on user preferences, context, and intent.</p>
+  <h2>What I Built</h2>
+  <p>I generated the initial web application using Lovable AI, then refined and extended the system using React by resolving bugs and improving core functionality.</p>
+  <p>I converted the application into a cross-platform iOS app using Capacitor and implemented integrations with Google Calendar and Apple Calendar, enabling seamless synchronization of user schedules.</p>
+  <p>I also improved Apple Calendar-related UI/UX issues to ensure consistency across platforms.</p>
+  <p>On the AI side, I evaluated multiple approaches and integrated Google Cloud AI APIs. I designed the core logic enabling the system to interpret user intent and dynamically adapt scheduling decisions, creating a more personalized and interactive experience.</p>
+  <h2>Impact (Pre-Launch)</h2>
+  <p>The product is currently in its final pre-launch stage, with a soft launch scheduled this month.</p>
+  <p>It is designed to reduce manual coordination overhead and improve scheduling efficiency through AI-driven decision support. By enabling multi-user coordination and personalized AI interactions, the system aims to streamline how users plan and manage their time across personal and social contexts.</p>
   <div class="gallery">
     <img src="images/ai-assistant.png" alt="AI Scheduling Assistant screenshot" width="1600" height="1000" loading="lazy">
   </div>
