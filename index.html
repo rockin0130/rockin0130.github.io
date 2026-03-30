@@ -194,7 +194,7 @@ body {
   background-color: #2a272e;
   /* Per-slide url() set inline — same pattern as .hero */
   background-size: cover;
-  background-position: right 30%;
+  background-position: center;
   background-repeat: no-repeat;
 }
 
@@ -202,12 +202,20 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    105deg,
-    rgba(0, 0, 0, 0.78) 0%,
-    rgba(0, 0, 0, 0.42) 42%,
-    rgba(0, 0, 0, 0.22) 100%
-  );
+  /* Base dim + left-heavy gradient for white/bright skies (text on left) */
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.08) 45%,
+      rgba(0, 0, 0, 0.28) 100%
+    ),
+    linear-gradient(
+      105deg,
+      rgba(0, 0, 0, 0.82) 0%,
+      rgba(0, 0, 0, 0.48) 48%,
+      rgba(0, 0, 0, 0.32) 100%
+    );
   z-index: 0;
   pointer-events: none;
 }
@@ -599,7 +607,7 @@ body {
           </article>
           <article
             class="work-slide"
-            style="background-image: url('images/ai-assistant.png');"
+            style="background-image: url('images/calendar.png');"
             aria-label="2 of 3"
           >
             <div class="work-slide-inner">
