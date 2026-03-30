@@ -18,16 +18,19 @@ body {
   color: #111;
 }
 
-/* ================= HERO (full-bleed background) ================= */
+/* ================= HERO (full-width: text left, photo via background right) ================= */
 .hero {
   position: relative;
-  min-height: clamp(380px, 58vh, 720px);
+  width: 100%;
+  min-height: max(80vh, 600px);
+  display: flex;
+  align-items: center;
   padding: 72px 60px 64px;
   overflow: hidden;
   background-color: #e8e8e8;
   background-image: url("hero.png");
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: right center;
   background-size: cover;
 }
 
@@ -35,25 +38,32 @@ body {
   content: "";
   position: absolute;
   inset: 0;
+  /* Darker on the left (behind type); opens up toward the right so the portrait reads clearly */
   background: linear-gradient(
     90deg,
-    rgba(0, 0, 0, 0.55) 0%,
-    rgba(0, 0, 0, 0.38) 38%,
-    rgba(0, 0, 0, 0.18) 70%,
-    rgba(0, 0, 0, 0.12) 100%
+    rgba(45, 45, 48, 0.92) 0%,
+    rgba(45, 45, 48, 0.55) 38%,
+    rgba(45, 45, 48, 0.12) 58%,
+    rgba(245, 245, 247, 0) 72%
   );
   z-index: 1;
+  pointer-events: none;
 }
 
 .hero-inner {
   position: relative;
   z-index: 2;
-  max-width: 1100px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .hero-copy {
-  max-width: 640px;
+  flex: 0 1 auto;
+  max-width: min(640px, 52vw);
 }
 
 .hero-top {
@@ -384,6 +394,10 @@ body {
 
 .dark .hero {
   background-color: #1a1a1a;
+  background-image: url("hero.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
 }
 
 .dark .hero::before {
@@ -416,7 +430,12 @@ body {
 @media (max-width: 768px) {
   .hero {
     padding: 88px 24px 48px;
-    min-height: 420px;
+    min-height: max(85vh, 520px);
+    background-position: right center;
+  }
+
+  .hero-copy {
+    max-width: 100%;
   }
 
   .section-inner {
