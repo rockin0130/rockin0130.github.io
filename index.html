@@ -270,7 +270,13 @@ body {
   justify-content: center;
   align-self: center;
   min-width: 0;
-  background: #ffffff;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  line-height: 0;
 }
 
 .work-slide-img {
@@ -278,6 +284,8 @@ body {
   width: auto;
   height: auto;
   max-width: 100%;
+  margin: 0;
+  padding: 0;
   object-fit: contain;
   object-position: center;
   border: none;
@@ -285,10 +293,12 @@ body {
   box-shadow: none;
   border-radius: 0;
   background: transparent;
+  background-color: transparent;
 }
 
 .work-slide-img:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .work-slide-img--landscape {
@@ -537,6 +547,10 @@ body {
   color: #fff;
 }
 
+.dark .work-slide-media {
+  background: transparent;
+}
+
 .dark .carousel-footer {
   background: #ffffff;
 }
@@ -585,7 +599,7 @@ body {
 
   .work-slide-layout {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     padding: 28px 20px 100px;
     gap: 24px;
   }
@@ -593,12 +607,17 @@ body {
   .work-slide-copy {
     max-width: none;
     order: 1;
+    align-self: stretch;
   }
 
   .work-slide-media {
     order: 2;
+    display: flex;
+    align-items: center;
     justify-content: center;
     align-self: center;
+    width: 100%;
+    background: transparent;
   }
 
   .work-slide-img--landscape {
@@ -682,7 +701,7 @@ body {
                 </div>
               </div>
               <div class="work-slide-media">
-                <img class="work-slide-img work-slide-img--landscape" src="images/extension.png" alt="Fashion Extension product preview" width="1000" height="640" loading="lazy">
+                <img class="work-slide-img work-slide-img--landscape" src="images/extension.png" alt="Fashion Extension product preview" loading="lazy" decoding="async">
               </div>
             </div>
           </article>
@@ -697,7 +716,7 @@ body {
                 </div>
               </div>
               <div class="work-slide-media">
-                <img class="work-slide-img work-slide-img--portrait" src="images/calendar.png" alt="AI Scheduling Assistant app preview" width="600" height="900" loading="lazy">
+                <img class="work-slide-img work-slide-img--portrait" src="images/calendar.png" alt="AI Scheduling Assistant app preview" loading="lazy" decoding="async">
               </div>
             </div>
           </article>
@@ -712,7 +731,7 @@ body {
                 </div>
               </div>
               <div class="work-slide-media">
-                <img class="work-slide-img work-slide-img--landscape" src="images/hyundai.avif" alt="Global marketing integration preview" width="1000" height="640" loading="lazy">
+                <img class="work-slide-img work-slide-img--landscape" src="images/hyundai.avif" alt="Global marketing integration preview" loading="lazy" decoding="async">
               </div>
             </div>
           </article>
